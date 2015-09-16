@@ -67,12 +67,15 @@
 <p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>.</p>
 
 <h2>
-<a id="prerequisite" class="anchor" href="#prerequisite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisite</h2>
+<a id="user-guide" class="anchor" href="#user-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Guide</h2>
+
+<h3>
+<a id="prerequisite" class="anchor" href="#prerequisite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisite</h3>
 
 <p>You will need an Arduino UNO/Nano board based on the ATmega328P. Download the latest Grbl firmware from the <a href="https://github.com/grbl/grbl">Grbl  repository</a>, and <a href="https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino">flash Grbl to an Arduino</a>.</p>
 
-<h3>
-<a id="running-without-using-arduino-board" class="anchor" href="#running-without-using-arduino-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running without using Arduino board</h3>
+<h4>
+<a id="running-without-using-arduino-board" class="anchor" href="#running-without-using-arduino-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running without using Arduino board</h4>
 
 <p>If you don't have an Arduino, check out <a href="https://github.com/grbl/grbl-sim">grbl-sim</a> to compile Grbl into an executable for your computer.</p>
 
@@ -110,6 +113,63 @@ $ <span class="pl-c1">cd</span> grbl-sim</pre></div>
 <p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/ttyFAKE.png" alt="ttyFAKE"></p>
 </li>
 </ol>
+
+<h3>
+<a id="display-language" class="anchor" href="#display-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Display Language</h3>
+
+<p>You can change the display language from the <b>Settings</b> menu, it will set the <code>lang</code> query string parameter: <code>?lang={locale}</code></p>
+
+<p>Here is a list of currently supported locales:</p>
+
+<table>
+<thead>
+<tr>
+<th>Locale</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>de</td>
+<td>Deutsch</td>
+</tr>
+<tr>
+<td>en</td>
+<td>English (US)</td>
+</tr>
+<tr>
+<td>es</td>
+<td>Español</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>Français</td>
+</tr>
+<tr>
+<td>it</td>
+<td>Italiano</td>
+</tr>
+<tr>
+<td>ja</td>
+<td>日本語</td>
+</tr>
+<tr>
+<td>zh-cn</td>
+<td>中文 (简体)</td>
+</tr>
+<tr>
+<td>zh-tw</td>
+<td>中文 (繁體)</td>
+</tr>
+</tbody>
+</table>
+
+<p>We greatly appreciate your contributions for translation. Update resource strings in <code>web/i18n/{lang}/resource.json</code> and submit your pull request (PR) to make translation better.</p>
+
+<h3>
+<a id="widgets" class="anchor" href="#widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widgets</h3>
+
+<p>TBD</p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
