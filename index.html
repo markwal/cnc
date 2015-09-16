@@ -35,9 +35,36 @@
 
 <div class="highlight highlight-source-shell"><pre>$ npm install -g cncjs</pre></div>
 
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
 <p>Run <code>cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ cnc</pre></div>
+
+<p>Run <code>cnc</code> with -h for detailed usage:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ cnc -h
+
+  Usage: cnc [options]
+
+  Options:
+
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -p, --port               <span class="pl-c1">set</span> listen port (default: 8000)
+    -l, --host               <span class="pl-c1">set</span> listen address or hostname (default: 0.0.0.0)
+    -b, --backlog            <span class="pl-c1">set</span> listen backlog (default: 511)
+    -c, --config <span class="pl-k">&lt;</span>filename<span class="pl-k">&gt;</span>  <span class="pl-c1">set</span> configuration file</pre></div>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>There are several *.gcode files in the <a href="https://github.com/cheton/cnc.js/tree/master/examples">examples</a> directory. You can use the GCode widget to load a GCode file and make a trial run.</p>
+
+<p>If you don't have a CAM software, try using <a href="http://jscut.org/">jscut</a> to create G-Code from *.svg. It's a simple CAM package that runs in the browser.</p>
+
+<p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>.</p>
 
 <h2>
 <a id="prerequisite" class="anchor" href="#prerequisite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisite</h2>
