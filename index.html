@@ -26,7 +26,7 @@
 <p><a href="https://nodei.co/npm/cncjs/"><img src="https://nodei.co/npm/cncjs.png?downloads=true&amp;stars=true" alt="NPM"></a><br>
 <img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/banner.png" alt="cncjs"></p>
 
-<p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">GRBL</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
+<p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
 
 <p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/preview.gif" alt="cnc.js"> </p>
 
@@ -38,6 +38,51 @@
 <p>Run <code>cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ cnc</pre></div>
+
+<h2>
+<a id="prerequisite" class="anchor" href="#prerequisite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisite</h2>
+
+<p>You will need an Arduino UNO/Nano board based on the ATmega328P. Download the latest Grbl firmware from the <a href="https://github.com/grbl/grbl">Grbl  repository</a>, and <a href="https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino">flash Grbl to an Arduino</a>.</p>
+
+<h3>
+<a id="running-without-using-arduino-board" class="anchor" href="#running-without-using-arduino-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running without using Arduino board</h3>
+
+<p>If you don't have an Arduino, check out <a href="https://github.com/grbl/grbl-sim">grbl-sim</a> to compile Grbl into an executable for your computer.</p>
+
+<ol>
+<li>
+<p>Clone this repository into the directory containing the Grbl source code (i.e. <code>&lt;repo&gt;/grbl/</code>), like so:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone git@github.com:grbl/grbl.git
+$ <span class="pl-c1">cd</span> grbl/grbl
+$ git clone git@github.com:grbl/grbl-sim.git
+$ <span class="pl-c1">cd</span> grbl-sim</pre></div>
+</li>
+<li>Edit the Grbl-sim Makefile to select the correct <code>PLATFORM =</code> line.</li>
+<li>
+<p>Run <code>make new</code> to compile the Grbl sim. It will create an executable file named <code>grbl_sim.exe</code>. See below:</p>
+
+<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/grbl-sim.png" alt="grbl-sim">.</p>
+</li>
+<li>On Linux, run the updated version of <a href="https://github.com/cheton/cnc.js/blob/master/examples/grbl-sim/simport.sh">simport.sh</a> (<code>examples/grbl-sim/simport.sh</code>) to create a fake serial port (<code>/dev/ttyFAKE</code>), and use it to test your Grbl interface software.</li>
+<li>
+<p>Copy <a href="https://github.com/cheton/cnc.js/blob/master/examples/grbl-sim/config.js">config.js</a> from <a href="https://github.com/cheton/cnc.js/tree/master/examples/grbl-sim">examples/grbl-sim</a> to your local folder, and run <code>cnc -c /path/to/your/config.js</code> to start the server. The configuration file should look like below:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.exports <span class="pl-k">=</span> {
+    ports<span class="pl-k">:</span> [
+        {
+            comName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/dev/ttyFAKE<span class="pl-pds">'</span></span>,
+            manufacturer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grbl-sim<span class="pl-pds">'</span></span> <span class="pl-c">// optional</span>
+        }
+    ]
+};</pre></div>
+</li>
+<li>
+<p>Open <code>/dev/ttyFAKE</code> from the Connection widget to interact with the Grbl simulator as if connected to an Arduino with Grbl.</p>
+
+<p><img src="https://github.com/cheton/cnc.js/blob/master/media/ttyFAKE.png" alt="ttyFAKE"></p>
+</li>
+</ol>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
