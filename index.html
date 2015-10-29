@@ -28,14 +28,19 @@
 
 <p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
 
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/preview.gif" alt="cnc.js"> </p>
+<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/cncjs.png" alt="cnc.js"> </p>
 
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<p>JSDC 2015: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a></p>
+<p><a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="CNC"></a></p>
 
-<p><a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="IMAGE ALT TEXT"></a></p>
+<p>JSDC 2015 speech: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a></p>
+
+<h3>
+<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Photo Gallery</h3>
+
+<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12118907_10207901191546433_3867236073352040616_n.jpg?oh=97c977c426367130eef35b5e230637c4&amp;oe=56A65008" alt="Photo Gallery"></a></p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -75,117 +80,23 @@
 <p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>.</p>
 
 <h2>
-<a id="user-guide" class="anchor" href="#user-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Guide</h2>
+<a id="wiki" class="anchor" href="#wiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wiki</h2>
 
-<h3>
-<a id="prerequisite" class="anchor" href="#prerequisite" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisite</h3>
+<p><a href="https://github.com/cheton/cnc.js/wiki">https://github.com/cheton/cnc.js/wiki</a></p>
 
-<p>You will need an Arduino UNO/Nano board based on the ATmega328P. Download the latest Grbl firmware from the <a href="https://github.com/grbl/grbl">Grbl  repository</a>, and <a href="https://github.com/grbl/grbl/wiki/Flashing-Grbl-to-an-Arduino">flash Grbl to an Arduino</a>.</p>
-
-<h4>
-<a id="running-without-using-arduino-board" class="anchor" href="#running-without-using-arduino-board" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running without using Arduino board</h4>
-
-<p>If you don't have an Arduino, check out <a href="https://github.com/grbl/grbl-sim">grbl-sim</a> and follow the instructions below to compile Grbl into an executable for your computer:</p>
-
-<ol>
-<li>
-<p>Clone this repository into the directory containing the Grbl source code (i.e. <code>&lt;repo&gt;/grbl/</code>), like so:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ git clone git@github.com:grbl/grbl.git
-$ <span class="pl-c1">cd</span> grbl/grbl
-$ git clone git@github.com:grbl/grbl-sim.git
-$ <span class="pl-c1">cd</span> grbl-sim</pre></div>
-</li>
-<li>Edit the Grbl-sim Makefile to select the correct <code>PLATFORM =</code> line.</li>
-<li>
-<p>Run <code>make new</code> to compile the Grbl sim. It will create an executable file named <code>grbl_sim.exe</code>. See below:</p>
-
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/grbl-sim.png" alt="grbl-sim">.</p>
-</li>
-<li>On Linux, run the updated version of <a href="https://github.com/cheton/cnc.js/blob/master/examples/grbl-sim/simport.sh">simport.sh</a> (<code>examples/grbl-sim/simport.sh</code>) to create a fake serial port (<code>/dev/ttyFAKE</code>), and use it to test your Grbl interface software.</li>
-<li>
-<p>Copy <a href="https://github.com/cheton/cnc.js/blob/master/examples/grbl-sim/config.js">config.js</a> from <a href="https://github.com/cheton/cnc.js/tree/master/examples/grbl-sim">examples/grbl-sim</a> to your local folder, and run <code>cnc -c /path/to/your/config.js</code> to start the server. The configuration file should look like below:</p>
-
-<div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.exports <span class="pl-k">=</span> {
-    ports<span class="pl-k">:</span> [
-        {
-            comName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>/dev/ttyFAKE<span class="pl-pds">'</span></span>,
-            manufacturer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>grbl-sim<span class="pl-pds">'</span></span> <span class="pl-c">// optional</span>
-        }
-    ]
-};</pre></div>
-</li>
-<li>
-<p>Open <code>/dev/ttyFAKE</code> from the Connection widget to interact with the Grbl simulator as if connected to an Arduino with Grbl.</p>
-
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/ttyFAKE.png" alt="ttyFAKE"></p>
-</li>
-</ol>
-
-<h3>
-<a id="display-language" class="anchor" href="#display-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Display Language</h3>
-
-<p>You can change the display language from the <b>Settings</b> menu, it will set the <code>lang</code> query string parameter: <code>?lang={locale}</code></p>
-
-<p>Here is a list of currently supported locales:</p>
-
-<table>
-<thead>
-<tr>
-<th>Locale</th>
-<th>Language</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>de</td>
-<td>Deutsch</td>
-</tr>
-<tr>
-<td>en</td>
-<td>English (US)</td>
-</tr>
-<tr>
-<td>es</td>
-<td>Español</td>
-</tr>
-<tr>
-<td>fr</td>
-<td>Français</td>
-</tr>
-<tr>
-<td>it</td>
-<td>Italiano</td>
-</tr>
-<tr>
-<td>ja</td>
-<td>日本語</td>
-</tr>
-<tr>
-<td>zh-cn</td>
-<td>中文 (简体)</td>
-</tr>
-<tr>
-<td>zh-tw</td>
-<td>中文 (繁體)</td>
-</tr>
-</tbody>
-</table>
-
-<p>We greatly appreciate your contributions for translation. Update resource strings in <code>web/i18n/{lang}/resource.json</code> and submit your pull request (PR) to make translation better.</p>
-
-<h3>
-<a id="widgets" class="anchor" href="#widgets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widgets</h3>
-
-<p>TBD</p>
+<ul>
+<li><a href="https://github.com/cheton/cnc.js/wiki/Prerequisite">Prerequisite</a></li>
+<li><a href="https://github.com/cheton/cnc.js/wiki/User-Guide">User Guide</a></li>
+<li><a href="https://github.com/cheton/cnc.js/wiki/FAQ">FAQ</a></li>
+</ul>
 
 <h2>
 <a id="todos" class="anchor" href="#todos" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODOs</h2>
 
 <ul>
-<li>[ ] Spindle on/off</li>
+<li>[x] Soft reset GRBL / Unlock GRBL</li>
+<li>[x] Spindle on/off</li>
 <li>[ ] Remember last working state upon browser refresh</li>
-<li>[ ] Soft reset GRBL / Unlock GRBL</li>
 <li>[ ] Drag and drop *.gcode files</li>
 <li>[ ] Display circular arcs with G02 and G03 in the 3D GCode viewer<br>
   <a href="http://www.cnccookbook.com/CCCNCGCodeArcsG02G03.htm">http://www.cnccookbook.com/CCCNCGCodeArcsG02G03.htm</a>
