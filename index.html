@@ -45,14 +45,22 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
+<p>First, ensure you have <code>prefix=~/.npm</code> in  <code>~/.npmrc</code>. For example:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>prefix=~/.npm<span class="pl-pds">"</span></span> <span class="pl-k">&gt;&gt;</span> <span class="pl-k">~</span>/.npmrc
+$ cat <span class="pl-k">~</span>/.npmrc
+prefix=<span class="pl-k">~</span>/.npm</pre></div>
+
+<p>Then, install <code>cncjs</code> without <code>sudo</code>, or the <code>serialport</code> module may not install correctly on some platforms like Raspberry Pi.</p>
+
 <div class="highlight highlight-source-shell"><pre>$ npm install -g cncjs</pre></div>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Run <code>cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
+<p>Run <code>cnc</code> or <code>~/.npm/bin/cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
 
-<div class="highlight highlight-source-shell"><pre>$ cnc</pre></div>
+<div class="highlight highlight-source-shell"><pre>$ cnc <span class="pl-c"># or ~/.npm/bin/cnc</span></pre></div>
 
 <p>Run <code>cnc</code> with -h for detailed usage:</p>
 
