@@ -23,7 +23,7 @@
 <a id="cncjs--" class="anchor" href="#cncjs--" aria-hidden="true"><span class="octicon octicon-link"></span></a>CNC.js <a href="https://travis-ci.org/cheton/cnc.js"><img src="https://travis-ci.org/cheton/cnc.js.svg?branch=master" alt="build status"></a> <a href="https://coveralls.io/r/cheton/cnc.js"><img src="https://coveralls.io/repos/cheton/cnc.js/badge.svg" alt="Coverage Status"></a>
 </h1>
 
-<p><a href="https://nodei.co/npm/cncjs/"><img src="https://nodei.co/npm/cncjs.png?downloads=true&amp;stars=true" alt="NPM"></a><br>
+<p><a href="https://nodei.co/npm/cncjs/"><img src="https://nodei.co/npm/cncjs.png?downloads=true&amp;stars=true" alt="NPM"></a>
 <img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/banner2.png" alt="cncjs"></p>
 
 <p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
@@ -56,11 +56,16 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 <div class="highlight highlight-source-shell"><pre>$ npm install -g cncjs</pre></div>
 
 <h2>
+<a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade</h2>
+
+<p>Use <code>npm update -g cncjs</code> to upgrade to a newer version.</p>
+
+<h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>Run <code>cnc</code> or <code>~/.npm/bin/cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
 
-<div class="highlight highlight-source-shell"><pre>$ cnc <span class="pl-c"># or ~/.npm/bin/cnc</span></pre></div>
+<div class="highlight highlight-source-shell"><pre>$ cnc</pre></div>
 
 <p>Run <code>cnc</code> with -h for detailed usage:</p>
 
@@ -76,6 +81,7 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
     -l, --host               set listen address or hostname (default: 0.0.0.0)
     -b, --backlog            set listen backlog (default: 511)
     -c, --config &lt;filename&gt;  set config file (default: ~/.cncrc)
+    -d, --debug              run in debug mode
 </code></pre>
 
 <h2>
@@ -118,9 +124,16 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>Copyright (c) 2015 Cheton Wu</p>
+<p>Copyright (c) 2015-2016 Cheton Wu</p>
 
 <p>Licensed under the <a href="LICENSE">MIT License</a>.</p>
+
+<h2>
+<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donate</h2>
+
+<p>If you would like to support this project, you can make a donation using PayPal. Thank you!</p>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=38CYN33CWPBR2"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate"></a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/cheton/cnc.js">cnc.js</a> is maintained by <a href="https://github.com/cheton">cheton</a>.</span>
