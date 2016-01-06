@@ -33,14 +33,8 @@
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<p><a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="CNC"></a></p>
-
-<p>JSDC 2015 speech: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a></p>
-
-<h3>
-<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Photo Gallery</h3>
-
-<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12118907_10207901191546433_3867236073352040616_n.jpg?oh=97c977c426367130eef35b5e230637c4&amp;oe=56A65008" alt="Photo Gallery"></a></p>
+<p>JSDC 2015 speech: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a>
+<a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="CNC"></a></p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -63,7 +57,7 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>Run <code>cnc</code> or <code>~/.npm/bin/cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web console:</p>
+<p>Run <code>cnc</code> or <code>~/.npm/bin/cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web interface:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ cnc</pre></div>
 
@@ -85,6 +79,53 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 </code></pre>
 
 <h2>
+<a id="docker-image-installation-x64-only" class="anchor" href="#docker-image-installation-x64-only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker Image Installation (x64 only)</h2>
+
+<p>Alternatively, you can install and run a Docker image within a Docker container. The first installation may take a long time to complete, but further updates will be much faster.</p>
+
+<p>To install and set up cnc.js, take the following steps:</p>
+
+<p><b>Step 1:</b> Enter the following command to retrieve the latest version of the image:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker pull cheton/cnc:latest</pre></div>
+
+<p><b>Step 2:</b> Use the <code>docker run</code> command to create the Docker container and run the server, like so:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker run --privileged -p 8000:8000 --rm --name cnc cheton/cnc:latest</pre></div>
+
+<p>By default a container is not allowed to access any devices, but a "privileged" container is given access to all devices on the host.</p>
+
+<p><b>Step 3:</b> If everything works fine, you should be able to view the web interface at <code>http://yourhostname:8000/</code>.</p>
+
+<h3>
+<a id="tips" class="anchor" href="#tips" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips</h3>
+
+<p>If you run into issues and need to restart the Docker container, use the following commands to first stop the Docker application, and then start it up again:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker stop cnc
+$ docker start cnc </pre></div>
+
+<p>To view a list of all containers that are currently running in your Docker environment, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker ps</pre></div>
+
+<p>To view all the images you have pulled into your Docker environment, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker images</pre></div>
+
+<p>To delete containers in your Docker environment, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker rm CONTAINER_ID</pre></div>
+
+<p>To delete images in your Docker environment, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker rmi IMAGE_ID</pre></div>
+
+<p>To view the container in your terminal, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ docker attach cnc</pre></div>
+
+<h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
 
 <p>There are several *.gcode files in the <a href="https://github.com/cheton/cnc.js/tree/master/examples">examples</a> directory. You can use the GCode widget to load a GCode file and make a trial run.</p>
@@ -104,22 +145,10 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 <li><a href="https://github.com/cheton/cnc.js/wiki/FAQ">FAQ</a></li>
 </ul>
 
-<h2>
-<a id="todos" class="anchor" href="#todos" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODOs</h2>
+<h3>
+<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Photo Gallery</h3>
 
-<ul>
-<li>[x] Soft reset GRBL / Unlock GRBL</li>
-<li>[x] Spindle on/off</li>
-<li>[x] Display G2/G3 arcs in the 3D visualizer
-  <a href="http://www.cnccookbook.com/CCCNCGCodeArcsG02G03.htm">http://www.cnccookbook.com/CCCNCGCodeArcsG02G03.htm</a>
-</li>
-<li>[x] Convert between Metric and Imperial unit<br>
-  <a href="http://cnc-programming-tips.blogspot.tw/2014/12/g20-g21-unit-selection-codes.html">http://cnc-programming-tips.blogspot.tw/2014/12/g20-g21-unit-selection-codes.html</a>
-</li>
-<li>[x] Drag and drop support for loading G-code file</li>
-<li>[ ] Remember last working state upon browser refresh</li>
-<li>[ ] Webcam support</li>
-</ul>
+<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12118907_10207901191546433_3867236073352040616_n.jpg?oh=97c977c426367130eef35b5e230637c4&amp;oe=56A65008" alt="Photo Gallery"></a></p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
