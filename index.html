@@ -49,6 +49,8 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 
 <div class="highlight highlight-source-shell"><pre>$ npm install -g cncjs</pre></div>
 
+<p>Check out <a href="https://github.com/cheton/cnc.js#git-installation">Git Installation</a> and <a href="https://github.com/cheton/cnc.js#docker-image-installation-x64-only">Docker Image Installation (x64 only)</a> for other installation methods.</p>
+
 <h2>
 <a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade</h2>
 
@@ -77,6 +79,22 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
     -c, --config &lt;filename&gt;  set config file (default: ~/.cncrc)
     -d, --debug              run in debug mode
 </code></pre>
+
+<h2>
+<a id="git-installation" class="anchor" href="#git-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Installation</h2>
+
+<p>If you prefer to use Git instead of <code>npm install</code>, You can create a local clone of the repository on your computer and sync from GitHub. Type the following commands to install and run <code>cnc.js</code>:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/cheton/cnc.js.git
+$ <span class="pl-c1">cd</span> cnc.js
+$ npm install --production
+$ ./bin/cnc</pre></div>
+
+<p>To update your local copy with latest changes, use:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ git pull
+$ npm install --production
+$ ./bin/cnc</pre></div>
 
 <h2>
 <a id="docker-image-installation-x64-only" class="anchor" href="#docker-image-installation-x64-only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker Image Installation (x64 only)</h2>
