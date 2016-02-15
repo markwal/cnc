@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="cncjs--" class="anchor" href="#cncjs--" aria-hidden="true"><span class="octicon octicon-link"></span></a>CNC.js <a href="https://travis-ci.org/cheton/cnc.js"><img src="https://travis-ci.org/cheton/cnc.js.svg?branch=master" alt="build status"></a> <a href="https://coveralls.io/r/cheton/cnc.js"><img src="https://coveralls.io/repos/cheton/cnc.js/badge.svg" alt="Coverage Status"></a>
+<a id="cncjs--" class="anchor" href="#cncjs--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CNC.js <a href="https://travis-ci.org/cheton/cnc.js"><img src="https://travis-ci.org/cheton/cnc.js.svg?branch=master" alt="build status"></a> <a href="https://coveralls.io/r/cheton/cnc.js"><img src="https://coveralls.io/repos/cheton/cnc.js/badge.svg" alt="Coverage Status"></a>
 </h1>
 
 <p><a href="https://nodei.co/npm/cncjs/"><img src="https://nodei.co/npm/cncjs.png?downloads=true&amp;stars=true" alt="NPM"></a>
@@ -28,16 +28,21 @@
 
 <p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
 
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/cncjs.png" alt="cnc.js"> </p>
+<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/cncjs.png" alt="cncjs.png"> </p>
+
+<h5>
+<a id="widgets-management" class="anchor" href="#widgets-management" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Widgets Management</h5>
+
+<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/widgets.png" alt="widgets.png"></p>
 
 <h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
 
 <p>JSDC 2015 speech: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a>
 <a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="CNC"></a></p>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>First, ensure you have <code>prefix=~/.npm</code> in  <code>~/.npmrc</code>. For example:</p>
 
@@ -49,15 +54,17 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 
 <div class="highlight highlight-source-shell"><pre>$ npm install -g cncjs</pre></div>
 
+<p>If you want to run it on Raspberry Pi with Raspbian Wheezy, be sure to <a href="https://somewideopenspace.wordpress.com/2014/02/28/gcc-4-8-on-raspberry-pi-wheezy/">install gcc/g++ 4.8</a> before npm install.</p>
+
 <p>Check out <a href="https://github.com/cheton/cnc.js#git-installation">Git Installation</a> and <a href="https://github.com/cheton/cnc.js#docker-image-installation-x64-only">Docker Image Installation (x64 only)</a> for other installation methods.</p>
 
 <h2>
-<a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upgrade</h2>
+<a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Upgrade</h2>
 
 <p>Run <code>npm update -g cncjs</code> to upgrade to a newer version.</p>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>Run <code>cnc</code> or <code>~/.npm/bin/cnc</code> to start the server, and visit <code>http://yourhostname:8000/</code> to view the web interface:</p>
 
@@ -80,105 +87,36 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
     -d, --debug              run in debug mode
 </code></pre>
 
-<h2>
-<a id="git-installation" class="anchor" href="#git-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Installation</h2>
-
-<p>If you prefer to use Git instead of <code>npm install</code>, You can create a local clone of the repository on your computer and sync from GitHub. Type the following commands to install and run <code>cnc.js</code>:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ git clone https://github.com/cheton/cnc.js.git
-$ <span class="pl-c1">cd</span> cnc.js
-$ npm install --production
-$ ./bin/cnc</pre></div>
-
-<p>To update your local copy with latest changes, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ git pull
-$ npm install --production
-$ ./bin/cnc</pre></div>
-
-<p>This is the fastest method to bring your local copy up-to-date.</p>
+<p>Check out <a href="https://github.com/cheton/cnc.js/wiki/Installation">wiki</a> for other installation methods.</p>
 
 <h2>
-<a id="docker-image-installation-x64-only" class="anchor" href="#docker-image-installation-x64-only" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker Image Installation (x64 only)</h2>
+<a id="wiki" class="anchor" href="#wiki" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wiki</h2>
 
-<p>Alternatively, you can install and run a Docker image within a Docker container. The first installation may take a long time to complete, but further updates will be much faster.</p>
-
-<p>To install and set up cnc.js, take the following steps:</p>
-
-<p><b>Step 1:</b> Enter the following command to retrieve the latest version of the image:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker pull cheton/cnc:latest</pre></div>
-
-<p><b>Step 2:</b> Use the <code>docker run</code> command to create the Docker container and run the server, like so:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker run --privileged -p 8000:8000 --rm --name cnc cheton/cnc:latest</pre></div>
-
-<p>By default a container is not allowed to access any devices, but a "privileged" container is given access to all devices on the host.</p>
-
-<p><b>Step 3:</b> If everything works fine, you should be able to view the web interface at <code>http://yourhostname:8000/</code>.</p>
-
-<h3>
-<a id="tips" class="anchor" href="#tips" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips</h3>
-
-<p>If you run into issues and need to restart the Docker container, use the following commands to first stop the Docker application, and then start it up again:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker stop cnc
-$ docker start cnc </pre></div>
-
-<p>To view a list of all containers that are currently running in your Docker environment, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker ps</pre></div>
-
-<p>To view all the images you have pulled into your Docker environment, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker images</pre></div>
-
-<p>To delete containers in your Docker environment, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker rm CONTAINER_ID</pre></div>
-
-<p>To delete images in your Docker environment, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker rmi IMAGE_ID</pre></div>
-
-<p>To view the container in your terminal, use:</p>
-
-<div class="highlight highlight-source-shell"><pre>$ docker attach cnc</pre></div>
+<p><a href="https://github.com/cheton/cnc.js/wiki">https://github.com/cheton/cnc.js/wiki</a></p>
 
 <h2>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 
 <p>There are several *.gcode files in the <a href="https://github.com/cheton/cnc.js/tree/master/examples">examples</a> directory. You can use the GCode widget to load a GCode file and make a trial run.</p>
 
 <p>If you don't have a CAM software, try using <a href="http://jscut.org/">jscut</a> to create G-Code from *.svg. It's a simple CAM package that runs in the browser.</p>
 
-<p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>.</p>
-
-<h2>
-<a id="wiki" class="anchor" href="#wiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wiki</h2>
-
-<p><a href="https://github.com/cheton/cnc.js/wiki">https://github.com/cheton/cnc.js/wiki</a></p>
-
-<ul>
-<li><a href="https://github.com/cheton/cnc.js/wiki/Prerequisite">Prerequisite</a></li>
-<li><a href="https://github.com/cheton/cnc.js/wiki/User-Guide">User Guide</a></li>
-<li><a href="https://github.com/cheton/cnc.js/wiki/FAQ">FAQ</a></li>
-</ul>
+<p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>. </p>
 
 <h3>
-<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Photo Gallery</h3>
+<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Photo Gallery</h3>
 
-<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/12118907_10207901191546433_3867236073352040616_n.jpg?oh=97c977c426367130eef35b5e230637c4&amp;oe=56A65008" alt="Photo Gallery"></a></p>
+<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/12138529_10207901191546433_3867236073352040616_o.jpg" alt="Photo Gallery"></a></p>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <p>Copyright (c) 2015-2016 Cheton Wu</p>
 
 <p>Licensed under the <a href="LICENSE">MIT License</a>.</p>
 
 <h2>
-<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donate</h2>
+<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Donate</h2>
 
 <p>If you would like to support this project, you can make a donation using PayPal. Thank you!</p>
 
