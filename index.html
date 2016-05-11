@@ -20,26 +20,37 @@
 
     <section class="main-content">
       <h1>
-<a id="cncjs--" class="anchor" href="#cncjs--" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CNC.js <a href="https://travis-ci.org/cheton/cnc.js"><img src="https://travis-ci.org/cheton/cnc.js.svg?branch=master" alt="build status"></a> <a href="https://coveralls.io/r/cheton/cnc.js"><img src="https://coveralls.io/repos/cheton/cnc.js/badge.svg" alt="Coverage Status"></a>
+<a id="cnc---" class="anchor" href="#cnc---" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>cnc <a href="https://travis-ci.org/cheton/cnc"><img src="https://travis-ci.org/cheton/cnc.svg" alt="Travis CI Build Status"></a> <a href="https://ci.appveyor.com/project/cheton/cnc"><img src="https://ci.appveyor.com/api/projects/status/bf64c0brafpp4ucg?svg=true" alt="AppVeyor Build Status"></a> <a href="https://coveralls.io/r/cheton/cnc"><img src="https://coveralls.io/repos/cheton/cnc/badge.svg" alt="Coverage Status"></a>
 </h1>
 
 <p><a href="https://nodei.co/npm/cncjs/"><img src="https://nodei.co/npm/cncjs.png?downloads=true&amp;stars=true" alt="NPM"></a>
-<img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/banner2.png" alt="cncjs"></p>
+<img src="https://raw.githubusercontent.com/cheton/cnc/master/media/banner.png" alt="cnc"></p>
 
-<p>CNC.js is a web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
+<p>A web-based CNC milling controller for the <a href="https://www.arduino.cc/">Arduino</a> running <a href="https://github.com/grbl/grbl">Grbl</a>. It runs on an <a href="https://www.raspberrypi.org/">Raspberry Pi</a> or a laptop computer that you have Node.js installed, connecting to the Arduino over a serial connection using a USB serial port, a Bluetooth serial module, or a  Serial-to-WiFi module like <a href="https://www.arduino.cc/en/Guide/ArduinoWirelessShieldS2">XBee</a> or <a href="https://gist.github.com/ajfisher/1fdbcbbf96b7f2ba73cd">USR-WIFI232-T</a>.</p>
 
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/cncjs.png" alt="cncjs.png"> </p>
-
-<h5>
-<a id="widgets-management" class="anchor" href="#widgets-management" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Widgets Management</h5>
-
-<p><img src="https://raw.githubusercontent.com/cheton/cnc.js/master/media/widgets.png" alt="widgets.png"></p>
+<p><img src="https://raw.githubusercontent.com/cheton/cnc/master/media/cnc.png" alt="cnc.png"></p>
 
 <h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+<a id="key-features" class="anchor" href="#key-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Key Features</h2>
 
-<p>JSDC 2015 speech: <a href="http://cheton.github.io/jsdc2015/#/81">http://cheton.github.io/jsdc2015/#/81</a>
-<a href="https://www.youtube.com/watch?v=fJyq4fyiGSc&amp;hd=2" title="CNC.js"><img src="http://img.youtube.com/vi/fJyq4fyiGSc/0.jpg" alt="CNC"></a></p>
+<ul>
+<li>Supported CNC controllers
+
+<ul>
+<li>Grbl v0.9 or later</li>
+<li>TinyG2 will be supported in v2.x</li>
+</ul>
+</li>
+<li>3D Visualizer</li>
+<li>Allows multiple HTTP connections at the same serial port</li>
+<li>Supports a minimum width of 720px to target small-screen devices</li>
+<li><a href="https://github.com/cheton/cnc/wiki/User-Guide#widget-management">Widget Management</a></li>
+<li><a href="https://github.com/cheton/cnc/wiki/User-Guide#tinyweb-console-for-320x240-lcd-display">TinyWeb Console for 320x240 LCD Display</a></li>
+<li><a href="https://github.com/cheton/cnc/wiki/User-Guide#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a href="https://github.com/cheton/cnc/wiki/User-Guide#contour-shuttlexpress">Contour ShuttleXpress</a></li>
+<li>I18n Ready</li>
+<li>Z-Probing</li>
+</ul>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
@@ -56,12 +67,12 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 
 <p>If you want to run it on Raspberry Pi with Raspbian Wheezy, be sure to <a href="https://somewideopenspace.wordpress.com/2014/02/28/gcc-4-8-on-raspberry-pi-wheezy/">install gcc/g++ 4.8</a> before npm install.</p>
 
-<p>Check out <a href="https://github.com/cheton/cnc.js/wiki/Installation">wiki</a> for other installation methods.</p>
+<p>Check out <a href="https://github.com/cheton/cnc/wiki/Installation">wiki</a> for other installation methods.</p>
 
 <h2>
 <a id="upgrade" class="anchor" href="#upgrade" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Upgrade</h2>
 
-<p>Run <code>npm update -g cncjs</code> to upgrade to a newer version.</p>
+<p>Run <code>npm update -g cncjs</code> to upgrade to a newer version. To determine the version, use <code>cnc -V</code>.</p>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
@@ -72,7 +83,7 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 
 <p>Run <code>cnc</code> with -h for detailed usage:</p>
 
-<pre><code>$ cnc -h
+<div class="highlight highlight-source-shell"><pre>$ cnc -h
 
   Usage: cnc [options]
 
@@ -80,39 +91,37 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 
     -h, --help                  output usage information
     -V, --version               output the version number
-    -p, --port                  set listen port (default: 8000)
-    -l, --host                  set listen address or hostname (default: 0.0.0.0)
-    -b, --backlog               set listen backlog (default: 511)
-    -c, --config &lt;filename&gt;     set config file (default: ~/.cncrc)
+    -p, --port                  <span class="pl-c1">set</span> listen port (default: 8000)
+    -l, --host                  <span class="pl-c1">set</span> listen address or hostname (default: 0.0.0.0)
+    -b, --backlog               <span class="pl-c1">set</span> listen backlog (default: 511)
+    -c, --config <span class="pl-k">&lt;</span>filename<span class="pl-k">&gt;</span>     <span class="pl-c1">set</span> config file (default: <span class="pl-k">~</span>/.cncrc)
     -v, --verbose               increase the verbosity level
-    -m, --mount [&lt;url&gt;:]&lt;path&gt;  set the mount point for serving static files (default: /static:static)
-</code></pre>
+    -m, --mount [<span class="pl-k">&lt;</span>url<span class="pl-k">&gt;</span>:]<span class="pl-k">&lt;</span>path<span class="pl-k">&gt;</span>  <span class="pl-c1">set</span> the mount point <span class="pl-k">for</span> serving static files (default: /static:static)</pre></div>
+
+<p>If you need view detailed logs for troubleshooting, you can run the server in debug mode.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ cnc -vv</pre></div>
 
 <h2>
 <a id="wiki" class="anchor" href="#wiki" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Wiki</h2>
 
-<p><a href="https://github.com/cheton/cnc.js/wiki">https://github.com/cheton/cnc.js/wiki</a></p>
+<p><a href="https://github.com/cheton/cnc/wiki">https://github.com/cheton/cnc/wiki</a></p>
 
 <h2>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
 
-<p>There are several *.gcode files in the <a href="https://github.com/cheton/cnc.js/tree/master/examples">examples</a> directory. You can use the GCode widget to load a GCode file and make a trial run.</p>
+<p>There are several *.gcode files in the <a href="https://github.com/cheton/cnc/tree/master/examples">examples</a> directory. You can use the GCode widget to load a GCode file and make a trial run.</p>
 
 <p>If you don't have a CAM software, try using <a href="http://jscut.org/">jscut</a> to create G-Code from *.svg. It's a simple CAM package that runs in the browser.</p>
 
-<p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>. </p>
-
-<h3>
-<a id="photo-gallery" class="anchor" href="#photo-gallery" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Photo Gallery</h3>
-
-<p><a href="https://www.facebook.com/cheton.wu/media_set?set=a.10207901184746263.1073741852.1195704289&amp;type=3"><img src="https://scontent-iad3-1.xx.fbcdn.net/hphotos-xtp1/t31.0-8/12138529_10207901191546433_3867236073352040616_o.jpg" alt="Photo Gallery"></a></p>
+<p>Check out a live demo at <a href="http://jscut.org/jscut.html">http://jscut.org/jscut.html</a>.</p>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributions</h2>
 
-<p>Copyright (c) 2015-2016 Cheton Wu</p>
+<p>Use <a href="https://github.com/cheton/cnc/issues">GitHub issues</a> for requests.</p>
 
-<p>Licensed under the <a href="LICENSE">MIT License</a>.</p>
+<p>Pull requests welcome! Learn how to <a href="CONTRIBUTING.md">contribute</a>.</p>
 
 <h2>
 <a id="donate" class="anchor" href="#donate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Donate</h2>
@@ -120,6 +129,13 @@ prefix=<span class="pl-k">~</span>/.npm</pre></div>
 <p>If you would like to support this project, you can make a donation using PayPal. Thank you!</p>
 
 <p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=38CYN33CWPBR2"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate"></a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2015-2016 Cheton Wu</p>
+
+<p>Licensed under the <a href="LICENSE">MIT License</a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/cheton/cnc">cnc</a> is maintained by <a href="https://github.com/cheton">cheton</a>.</span>
