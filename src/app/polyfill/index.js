@@ -5,7 +5,8 @@ require('es5-shim/es5-shim');
 require('es5-shim/es5-sham');
 
 // Babel polyfill
-require('babel-polyfill');
+require('core-js/stable');
+require('regenerator-runtime/runtime');
 
 // console (IE9)
 require('./console');

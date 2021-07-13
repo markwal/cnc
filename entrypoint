@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-require('@babel/polyfill');
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 const launchServer = require('/opt/cncjs/server-cli').default;
 

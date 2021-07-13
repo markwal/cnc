@@ -12,7 +12,6 @@
   },
   "main": "main.js",
   "dependencies": {
-    "@babel/polyfill": "~7.4.3",
     "@babel/runtime": "~7.4.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.18.3",
